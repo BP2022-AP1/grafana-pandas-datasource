@@ -49,7 +49,7 @@ def annotations_to_response(target, df):
 
     # Single series with DatetimeIndex and values as text
     if isinstance(df, pd.Series):
-        for timestamp, value in df.iteritems():
+        for timestamp, value in df.items():
             response.append(
                 {
                     "annotation": target,  # The original annotation sent from Grafana.
