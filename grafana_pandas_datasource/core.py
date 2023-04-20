@@ -11,7 +11,7 @@ def dataframe_to_response(target, df, freq=None):
 
     if freq is not None:
         orig_tz = df.index.tz
-        df = df.tz_convert("UTC").resample(rule=freq, label="right", closed="right").mean().tz_convert(orig_tz)
+        df = df.resample(rule=freq, label="right", closed="right").min()
 
     if isinstance(df, pd.Series):
         response.append(_series_to_response(df, target))
